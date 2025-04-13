@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "curl -X POST https://cloudflare-build-notifier.tak-kunishige.workers.dev/ -H \"Content-Type: application/json\" -d '{\"buildName\":\"your-project-name\",\"secret\":\"pA!M.k_)!$G.vABQ9aeQmPNM\"}'",
     "preview": "astro preview",
     "astro": "astro"
   },
