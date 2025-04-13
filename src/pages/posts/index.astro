@@ -10,7 +10,14 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 <Layout title="ブログ記事一覧 | MokuLog">
   <main class="max-w-3xl mx-auto py-12 px-4">
-    <h1 class="text-3xl font-serif mb-8">ブログ記事一覧</h1>
+    <h1 class="text-3xl font-serif mb-2">ブログ記事一覧</h1>
+    <nav class="mb-6 text-sm" aria-label="パンくずリスト">
+      <ol class="flex flex-wrap items-center gap-2">
+        <li><a href="/" class="text-blue-600 hover:underline">ホーム</a></li>
+        <li>/</li>
+        <li class="text-gray-600">投稿一覧</li>
+      </ol>
+    </nav>
     
     <div class="grid gap-8">
       {posts.map((post) => (
@@ -46,4 +53,24 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
       </a>
     </div>
   </main>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://example.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "投稿一覧",
+          "item": "https://example.com/posts"
+        }
+      ]
+    }
+  </script>
 </Layout>

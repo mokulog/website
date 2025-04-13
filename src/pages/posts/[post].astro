@@ -29,6 +29,15 @@ const { Content } = await post.render();
       prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded
     ">
       <h1 class="text-3xl font-serif mb-2">{post.data.title}</h1>
+      <nav class="mb-4 text-sm" aria-label="パンくずリスト">
+        <ol class="flex flex-wrap items-center gap-2">
+          <li><a href="/" class="text-blue-600 hover:underline">ホーム</a></li>
+          <li>/</li>
+          <li><a href="/posts" class="text-blue-600 hover:underline">投稿一覧</a></li>
+          <li>/</li>
+          <li class="text-gray-600">{post.data.title}</li>
+        </ol>
+      </nav>
       <div class="flex items-center gap-4 mb-8 text-gray-600">
         <time datetime={post.data.date.toISOString()}>
           {post.data.date.toLocaleDateString('ja-JP')}
@@ -47,4 +56,30 @@ const { Content } = await post.render();
       </div>
     </article>
   </main>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://example.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "投稿一覧",
+          "item": "https://example.com/posts"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "${post.data.title}",
+          "item": "https://example.com/posts/${post.slug}"
+        }
+      ]
+    }
+  </script>
 </Layout>
