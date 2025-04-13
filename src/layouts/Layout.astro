@@ -1,37 +1,48 @@
-<!doctype html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
+---
+const SiteTitle = import.meta.env.SiteTitle ?? 'MokuLog';
+const Url = new URL(Astro.url.pathname, Astro.site);
+const { Meta = {} } = Astro.props;
+const IsHome = Astro.url.pathname === '/';
+const OgType = IsHome ? 'website' : 'article';
+const PageTitle = IsHome ? SiteTitle : `${Meta.title} - ${SiteTitle}`;
+const Description = Meta.description ?? 'quiet mornings. steady focus.';
+const Image = Meta.image ?? '/OGPcard01.PNG';
+---
+<!DOCTYPE html>
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={Description} />
+    <meta name="robots" content="max-image-preview:large" />
 
-  <!-- OGP基本情報 -->
-  <meta property="og:title" content="MokuLog" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/OGPcard01.PNG" />
-  <meta property="og:url" content="https://mokulog.jp" />
-  <meta property="og:description" content="quiet mornings. steady focus." />
+    <!-- OGP設定 -->
+    <meta property="og:title" content={PageTitle} />
+    <meta property="og:type" content={OgType} />
+    <meta property="og:site_name" content={SiteTitle} />
+    <meta property="og:url" content={Url.href} />
+    <meta property="og:image" content={Image} />
+    <meta property="og:description" content={Description} />
 
-  <!-- Twitterカード -->
-  <meta name="twitter:card" content="summary_large_image" />
+    <!-- Twitterカード -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={PageTitle} />
+    <meta name="twitter:description" content={Description} />
+    <meta name="twitter:image" content={Image} />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-  <!-- フォントとスタイル -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/globals.css">
-
-  <!-- Astro generator（必要なら値を手動で入れる） -->
-  <meta name="generator" content="Astro v4.0" />
-
-  <title>MokuLog</title>
-</head>
-<body>
-  <!-- Astroなどのコンポーネントでここに内容が挿入される -->
-  <slot />
-</body>
+    <!-- その他 -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={Url.href} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles/globals.css" />
+    <title>{PageTitle}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
