@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import type { CollectionEntry } from 'astro:content';
+
+// 投稿を取得して日付順にソート
+const posts: CollectionEntry<'posts'>[] = await getCollection('posts');
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<Layout title="ブログ記事一覧 | MokuLog">
+  <main class="max-w-3xl mx-auto py-12 px-4">
+    <h1 class="text-3xl font-serif mb-8">ブログ記事一覧</h1>
+    
+    <div class="grid gap-8">
+      {posts.map((post) => (
+        <article class="border-b pb-6">
+          <h2 class="text-2xl font-serif mb-2">
+            <a href={`/posts/${post.slug}`} class="hover:text-blue-600 transition">
+              {post.data.title}
+            </a>
+          </h2>
+          <div class="flex items-center gap-4 mb-3 text-gray-600">
+            <time datetime={post.data.date.toISOString()}>
+              {post.data.date.toLocaleDateString('ja-JP')}
+            </time>
+            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">
+              {post.data.category}
+            </span>
+          </div>
+          {post.data.description && (
+            <p class="text-gray-700">{post.data.description}</p>
+          )}
+          <div class="mt-4">
+            <a href={`/posts/${post.slug}`} class="text-blue-600 hover:underline">
+              続きを読む →
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+    
+    <div class="mt-12 text-center">
+      <a href="/" class="text-blue-600 hover:underline">
+        ← トップページに戻る
+      </a>
+    </div>
+  </main>
+</Layout>
