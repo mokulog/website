@@ -1,33 +1,44 @@
 <!doctype html>
 <html lang="ja">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+
+  <!-- OGP基本情報 -->
+  <meta property="og:title" content="MokuLog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/OGPcard01.PNG" />
+  <meta property="og:url" content="https://mokulog.jp" />
+  <meta property="og:description" content="quiet mornings. steady focus." />
+
+  <!-- Twitterカード -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- フォントとスタイル -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/globals.css">
+
+  <!-- Astro generator（必要なら値を手動で入れる） -->
+  <meta name="generator" content="Astro v4.0" />
+
+  <title>MokuLog</title>
 </head>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta property="og:title" content="MokuLog" />
-		<meta property="og:type" content="website" />
-		<meta property="og:image" content="/OGPcard01.PNG" />
-		<meta property="og:url" content="https://mokulog.jp" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>MokuLog</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<body>
+  <!-- Astroなどのコンポーネントでここに内容が挿入される -->
+  <slot />
+</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
