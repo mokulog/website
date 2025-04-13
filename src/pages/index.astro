@@ -1,11 +1,51 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Welcome from '../components/Welcome.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="MokuLog - 静かに、確かに、積み重ねる記録">
+  <main class="min-h-screen bg-white text-gray-900">
+    <!-- Hero Section -->
+    <section class="py-20 px-4 text-center">
+      <h1 class="text-4xl font-serif mb-4">moku log</h1>
+      <p class="text-xl mb-8">quiet mornings. steady focus.</p>
+      <a href="https://youtube.com" class="px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition">
+        YouTubeを見る
+      </a>
+    </section>
+
+    <!-- About MokuLog -->
+    <section class="max-w-3xl mx-auto py-12 px-4">
+      <h2 class="text-2xl font-serif mb-6">MokuLogとは</h2>
+      <p class="mb-4">静かに、確かに、積み重ねる記録のための空間です。</p>
+      <p>日々の学びと気づきを丁寧に記録していきます。</p>
+    </section>
+
+    <!-- Latest Study Logs -->
+    <section class="max-w-3xl mx-auto py-12 px-4">
+      <h2 class="text-2xl font-serif mb-6">最新の学習記録</h2>
+      <div class="grid gap-6">
+        <!-- ここにstudy-logから3件表示 -->
+      </div>
+    </section>
+
+    <!-- Latest Blog Posts -->
+    <section class="max-w-3xl mx-auto py-12 px-4">
+      <h2 class="text-2xl font-serif mb-6">最新のブログ記事</h2>
+      <div class="grid gap-6">
+        <!-- ここにblogから3件表示 -->
+      </div>
+    </section>
+
+    <!-- About Link -->
+    <section class="max-w-3xl mx-auto py-12 px-4 text-center">
+      <a href="/about" class="text-lg underline hover:text-gray-600">自己紹介を見る</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 text-center border-t">
+      <a href="https://youtube.com" class="mb-4 inline-block">YouTube</a>
+      <p class="text-sm">© 2025 MokuLog. All rights reserved.</p>
+    </footer>
+  </main>
 </Layout>

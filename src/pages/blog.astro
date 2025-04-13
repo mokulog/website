@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "ブログ | MokuLog";
+const blogPosts = [
+  {
+    title: "朝5時起きを1ヶ月続けてわかったこと",
+    date: "2025-04-10",
+    category: "習慣",
+    content: "朝の静かな時間がいかに生産的か、そして継続のコツについて...",
+    action: "明日も同じ時間に起きて、最初の1時間を学習に充てる"
+  },
+  {
+    title: "集中力を高める作業環境",
+    date: "2025-03-25", 
+    category: "環境",
+    content: "デスク周りの整理と照明の重要性について...",
+    action: "週1回のデスク整理タイムを設ける"
+  },
+  {
+    title: "モチベーションが下がった時の対処法",
+    date: "2025-03-15",
+    category: "モチベーション",
+    content: "小さな目標設定と進捗可視化の効果...",
+    action: "毎日3つの小さな目標を設定し、達成したらチェックする"
+  }
+];
+---
+
+<Layout title={title}>
+  <main class="min-h-screen bg-white text-gray-900 max-w-3xl mx-auto py-12 px-4">
+    <h1 class="text-3xl font-serif mb-8">ブログ</h1>
+
+    <div class="space-y-8">
+      {blogPosts.map(post => (
+        <article class="border rounded-lg p-6 hover:shadow-md transition">
+          <div class="flex justify-between items-start mb-2">
+            <h2 class="text-2xl font-serif">{post.title}</h2>
+            <span class="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">
+              {post.category}
+            </span>
+          </div>
+          
+          <time class="text-gray-500 text-sm">{post.date}</time>
+          
+          <p class="mt-4">{post.content}</p>
+          
+          <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+            <h3 class="font-semibold mb-2">次の行動</h3>
+            <p>{post.action}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </main>
+</Layout>

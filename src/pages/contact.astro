@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "お問い合わせ | MokuLog";
+---
+
+<Layout title={title}>
+  <main class="min-h-screen bg-white text-gray-900 max-w-3xl mx-auto py-12 px-4">
+    <h1 class="text-3xl font-serif mb-8">お問い合わせ</h1>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-serif mb-4">応援メッセージ</h2>
+      <p class="mb-4">応援メッセージや感想は以下のフォームからお送りください。</p>
+      <a 
+        href="https://forms.gle/example" 
+        class="inline-block px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Googleフォームを開く
+      </a>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-serif mb-4">コラボ・仕事依頼</h2>
+      <p>コラボレーションや仕事のご依頼も上記フォームから受け付けております。</p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-serif mb-4">SNSについて</h2>
+      <p>現在、SNSはYouTubeのみ運用しております。</p>
+      <div class="mt-4">
+        <a 
+          href="https://youtube.com" 
+          class="inline-flex items-center text-blue-600 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          YouTubeチャンネル
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

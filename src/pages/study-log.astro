@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "学習ログ | MokuLog";
+const studyLogs = [
+  {
+    title: "2025年4月｜気持ちを整える1ヶ月",
+    date: "2025-04-01",
+    studyTime: "120時間",
+    materials: "公認会計士テキスト、過去問題集",
+    reflection: "朝の集中時間をもっと活用したい",
+    goodPoints: "毎日継続できた",
+    nextGoal: "1日5時間を目標に",
+    message: "小さな一歩が大きな山を越える力になる"
+  },
+  {
+    title: "2025年3月｜基礎固めの月",
+    date: "2025-03-01",
+    studyTime: "100時間",
+    materials: "財務会計入門",
+    reflection: "復習の時間が足りなかった",
+    goodPoints: "新しい学習法を試せた",
+    nextGoal: "アウトプットを増やす",
+    message: "積み重ねた日々は裏切らない"
+  }
+];
+---
+
+<Layout title={title}>
+  <main class="min-h-screen bg-white text-gray-900 max-w-3xl mx-auto py-12 px-4">
+    <h1 class="text-3xl font-serif mb-8">学習ログ</h1>
+
+    <div class="space-y-8">
+      {studyLogs.map(log => (
+        <article class="border rounded-lg p-6 hover:shadow-md transition">
+          <h2 class="text-2xl font-serif mb-2">{log.title}</h2>
+          <time class="text-gray-500 text-sm">{log.date}</time>
+
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h3 class="font-semibold">勉強時間</h3>
+              <p>{log.studyTime}</p>
+            </div>
+            <div>
+              <h3 class="font-semibold">使用教材</h3>
+              <p>{log.materials}</p>
+            </div>
+            <div>
+              <h3 class="font-semibold">反省点</h3>
+              <p>{log.reflection}</p>
+            </div>
+            <div>
+              <h3 class="font-semibold">良かったこと</h3>
+              <p>{log.goodPoints}</p>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <h3 class="font-semibold">来月の目標</h3>
+            <p>{log.nextGoal}</p>
+          </div>
+
+          <blockquote class="mt-6 p-4 border-l-4 border-gray-300 italic">
+            {log.message}
+          </blockquote>
+        </article>
+      ))}
+    </div>
+  </main>
+</Layout>
