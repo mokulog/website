@@ -1,0 +1,86 @@
+---
+---
+
+<header class="sticky top-0 z-40 w-full border-b bg-white">
+  <div class="container flex h-16 items-center px-4 sm:px-8">
+    <!-- ロゴ -->
+    <a href="/" class="flex items-center space-x-2">
+      <span class="font-serif text-xl font-bold">moku log</span>
+    </a>
+
+    <!-- デスクトップメニュー -->
+    <nav class="ml-auto hidden md:flex">
+      <ul class="flex space-x-6">
+        <li><a href="/" class="text-sm font-medium transition-colors hover:text-gray-600">ホーム</a></li>
+        <li><a href="/posts" class="text-sm font-medium transition-colors hover:text-gray-600">ブログ</a></li>
+        <li><a href="/study-log" class="text-sm font-medium transition-colors hover:text-gray-600">学習記録</a></li>
+        <li><a href="/about" class="text-sm font-medium transition-colors hover:text-gray-600">自己紹介</a></li>
+        <li><a href="/contact" class="text-sm font-medium transition-colors hover:text-gray-600">お問い合わせ</a></li>
+      </ul>
+    </nav>
+
+    <!-- モバイルメニューボタン -->
+    <button id="mobile-menu-button" class="ml-auto md:hidden" aria-label="メニューを開く">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hamburger">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="close hidden">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- モバイルメニュー -->
+  <div id="mobile-menu" class="hidden md:hidden">
+    <nav class="container px-4 py-4 sm:px-8">
+      <ul class="flex flex-col space-y-4">
+        <li><a href="/" class="block text-sm font-medium transition-colors hover:text-gray-600">ホーム</a></li>
+        <li><a href="/posts" class="block text-sm font-medium transition-colors hover:text-gray-600">ブログ</a></li>
+        <li><a href="/study-log" class="block text-sm font-medium transition-colors hover:text-gray-600">学習記録</a></li>
+        <li><a href="/about" class="block text-sm font-medium transition-colors hover:text-gray-600">自己紹介</a></li>
+        <li><a href="/contact" class="block text-sm font-medium transition-colors hover:text-gray-600">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // ハンバーガーメニューの動作
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = mobileMenuButton?.querySelector('.hamburger');
+    const closeIcon = mobileMenuButton?.querySelector('.close');
+    
+    if (mobileMenuButton && mobileMenu && hamburgerIcon && closeIcon) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        hamburgerIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+    }
+  });
+</script>
+
+<style>
+  /* アニメーション */
+  #mobile-menu {
+    transition: all 0.2s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+  }
+  
+  #mobile-menu:not(.hidden) {
+    max-height: 300px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  /* アクティブなリンクのスタイル */
+  a.active {
+    color: #4b5563;
+    font-weight: 600;
+  }
+</style>
