@@ -40,6 +40,30 @@
   </noscript>
   <link rel="stylesheet" href="/styles/globals.css">
 
+  <!-- フォントキャッシュの最適化 -->
+  <script>
+    // フォントのキャッシュを1年間に設定
+    if ('caches' in window) {
+      const fontUrls = [
+        'https://fonts.gstatic.com/s/notoserifjp/v21/xn7mYHs72GKoTvER4Gn3b5eMXNikYkY0T84.woff2',
+        'https://fonts.gstatic.com/s/notoserifjp/v21/xn77YHs72GKoTvER4Gn3b5eMZGKLRkt3Q-v_AdVZYQ.woff2'
+      ];
+      
+      caches.open('font-cache-v1').then(cache => {
+        fontUrls.forEach(url => {
+          fetch(url, { cache: 'force-cache', mode: 'cors', credentials: 'omit' })
+            .then(response => {
+              if (response.ok) {
+                const clonedResponse = response.clone();
+                cache.put(url, clonedResponse);
+              }
+            })
+            .catch(error => console.error('Font caching failed:', error));
+        });
+      });
+    }
+  </script>
+
 
 </head>
 <body>
