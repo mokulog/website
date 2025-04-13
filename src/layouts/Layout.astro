@@ -4,19 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
 
+  <!-- SEO・基本情報 -->
+  <title>MokuLog</title>
+  <meta name="description" content="quiet mornings. steady focus." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="MokuLog編集部" />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).toString()} />
+
   <!-- OGP基本情報 -->
   <meta property="og:title" content="MokuLog" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content={new URL("/OGPcard01.PNG", Astro.site).toString()} />
-  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).toString()}/>
+  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).toString()} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="MokuLog" />
   <meta property="og:description" content="quiet mornings. steady focus." />
 
   <!-- Twitterカード -->
   <meta name="twitter:card" content="summary_large_image" />
+  <!-- <meta name="twitter:site" content="@mokulog_jp" /> -->
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -27,10 +36,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/globals.css">
 
-  <!-- Astro generator（必要なら値を手動で入れる） -->
-  <meta name="generator" content="Astro v4.0" />
 
-  <title>MokuLog</title>
 </head>
 <body>
   <!-- Astroなどのコンポーネントでここに内容が挿入される -->
