@@ -4,6 +4,17 @@ date: 2025-04-13
 category: "習慣"
 description: "朝の静かな時間を活用する方法とその効果について"
 ---
+import { Picture } from 'astro:assets';
+import myImage from './images/post1/image001.jpg';
+
+<Picture 
+  src={myImage}
+  formats={['avif']}
+  widths={[430, 768]}
+  sizes="(max-width: 360px) 360px, 768px"
+  alt="flower"
+  quality="high"
+/>
 
 ## はじめに
 1ヶ月間、毎朝5時に起きる習慣に挑戦しました。最初はつらいと思っていましたが、意外なメリットがたくさん見つかりました。
