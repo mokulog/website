@@ -12,11 +12,11 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
   <main class="max-w-3xl mx-auto py-12 px-4">
     <h1 class="text-3xl font-serif mb-2">ブログ記事一覧</h1>
     <nav class="mb-6 text-sm" aria-label="パンくずリスト">
-      <ol class="flex flex-wrap items-center gap-2">
+      <ul class="flex flex-wrap items-center gap-2 list-none">
         <li><a href="/" class="text-blue-600 hover:underline">ホーム</a></li>
         <li>/</li>
         <li class="text-gray-600">投稿一覧</li>
-      </ol>
+      </ul>
     </nav>
     
     <div class="grid gap-8">
